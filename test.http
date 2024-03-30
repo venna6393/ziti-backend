@@ -1,0 +1,95 @@
+###
+# Signup
+###
+
+POST http://localhost:5001/signup
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "email": "testuser@example.com",
+  "password": "password123"
+}
+
+###
+# Login
+###
+
+POST http://localhost:5001/login
+Content-Type: application/json
+
+{
+  "email": "testuser@example.com",
+  "password": "password123"
+}
+
+###
+# Get all food items
+###
+
+GET http://localhost:5001/foods
+
+###
+# Get food items by category
+###
+
+GET http://localhost:5001/foods/1
+
+###
+# Add item to user's cart
+###
+
+POST http://localhost:5001/cart
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcxMTc3Njc4MiwiZXhwIjoxNzExNzgwMzgyfQ.AGzU8k2zWexfn3Igxh4-vaqF9-d9gpSeHLwsu8eEy_0
+
+{
+  "food_id": 2,
+  "quantity": 2
+}
+
+###
+GET http://localhost:5001/cart
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcxMTc3Njc4MiwiZXhwIjoxNzExNzgwMzgyfQ.AGzU8k2zWexfn3Igxh4-vaqF9-d9gpSeHLwsu8eEy_0
+###
+# Place an order
+###
+
+POST http://localhost:5001/orders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcxMTc3Njc4MiwiZXhwIjoxNzExNzgwMzgyfQ.AGzU8k2zWexfn3Igxh4-vaqF9-d9gpSeHLwsu8eEy_0
+
+
+###
+# Get user order history
+###
+
+GET http://localhost:5001/orders
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcxMTM3ODM1MSwiZXhwIjoxNzExMzgxOTUxfQ.DdbIX4ECuiqM43hiGN8AuKAnEcFjzJrSCJfNvoUvnqA
+
+###
+# Remove item from user's cart
+###
+
+DELETE http://localhost:5001/cart/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcxMTYzNTQ1NywiZXhwIjoxNzExNjM5MDU3fQ.VwxdkMR5d2fs7DwsI13KXpsgSe6mxx4TMhiTBq201jI
+
+
+###
+# Decrease quantity of item in user's cart
+###
+
+PATCH http://localhost:5001/cart/2/decrease
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcxMTYzNTQ1NywiZXhwIjoxNzExNjM5MDU3fQ.VwxdkMR5d2fs7DwsI13KXpsgSe6mxx4TMhiTBq201jI
+
+# Increase quantity of item in user's cart
+###
+PATCH http://localhost:5001/cart/2/increase
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcxMTYzNTQ1NywiZXhwIjoxNzExNjM5MDU3fQ.VwxdkMR5d2fs7DwsI13KXpsgSe6mxx4TMhiTBq201jI
+
+
+
